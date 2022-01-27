@@ -1,70 +1,46 @@
-#include<iostream>
- 
-#define endl "\n"
-#define MAX 500
+#include <iostream>
+
 using namespace std;
- 
-int N, M, Answer;
-int MAP[MAX][MAX];
-int DP[MAX][MAX];
- 
-int dx[] = { 0, 0, 1, -1 };
-int dy[] = { 1, -1, 0, 0 };
- 
-void Input()
-{
-    cin >> N >> M;
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < M; j++)
-        {
-            cin >> MAP[i][j];
-            DP[i][j] = -1;
-        }
-    }
-}
- 
-int DFS(int x, int y)
-{
-    if (x == N - 1 && y == M - 1) return 1;
-    if (DP[x][y] != -1) return DP[x][y];
- 
-    DP[x][y] = 0;
-    for (int i = 0; i < 4; i++)
-    {
-        int nx = x + dx[i];
-        int ny = y + dy[i];
-        if (nx >= 0 && ny >= 0 && nx < N && ny < M)
-        {
-            if (MAP[nx][ny] < MAP[x][y])
-            {
-                DP[x][y] = DP[x][y] + DFS(nx, ny);
+
+int dp[500][500] = {0,};
+int map[500][500] = {0,};
+int d[4][2] = {{0,-1}, {-1,0}, {0,1}, {1,0}};
+
+int DFS(int r, int c, int m, int n) {
+    if(r == m - 1 && c == n - 1)
+        return 1;
+    if(dp[r][c] != -1) return dp[r][c];
+    
+    dp[r][c] = 0;
+    
+    for(int i = 0; i < 4; i++){
+        int newR = r + d[i][0];
+        int newC = c + d[i][1];
+
+        if(newR >= 0 && newR < m && newC >= 0 && newC < n){
+            if(map[newR][newC] < map[r][c]){
+                dp[r][c] += DFS(newR, newC, m, n);
             }
         }
     }
-    return DP[x][y];
+    
+    return dp[r][c];
 }
- 
-void Solution()
-{
-    Answer = DFS(0, 0);
-    cout << Answer << endl;
-}
- 
-void Solve()
-{
-    Input();
-    Solution();
-}
- 
-int main(void)
-{
+
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
- 
-    //freopen("Input.txt", "r", stdin);
-    Solve();
- 
-    return 0;
+
+    int M, N;
+    cin >> M >> N;
+    
+    for(int i = 0; i < M; i++){
+        for(int j = 0; j < N; j++){
+            cin >> map[i][j];
+            dp[i][j] = -1;
+        }
+    }
+    
+    cout << DFS(0, 0, M, N) << endl;
 }
