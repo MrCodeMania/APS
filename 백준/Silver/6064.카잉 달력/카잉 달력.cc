@@ -1,6 +1,19 @@
 #include <iostream>
 using namespace std;
 
+int gcd(int a, int b){
+    while(b != 0){
+        int r = a % b;
+        a = b;
+        b = r;
+    }
+    return a;
+}
+
+int lcm(int a, int b){
+    return a * b / gcd(a, b);
+}
+
 int main() {
     
     int testcase;
@@ -26,9 +39,10 @@ int main() {
         
         int target = input[little];
         int time = input[little];
+        int last = lcm(M,N);
         
         while(true){
-            if(visited[target]){
+            if(time > last){
                 time = -1;
                 break;
             }
