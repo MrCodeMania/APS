@@ -59,10 +59,10 @@ int main(){
         int endNum = stoi(v[2]);
         
         if(startNum == 0){
-            cout << sum[alphaNum][endNum] << endl; 
+            cout << sum[alphaNum][endNum] << "\n"; 
         }
         else {
-            cout << sum[alphaNum][endNum] - sum[alphaNum][startNum - 1] << endl; 
+            cout << sum[alphaNum][endNum] - sum[alphaNum][startNum - 1] << "\n"; 
         }
     }
 }
