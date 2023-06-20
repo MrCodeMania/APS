@@ -15,7 +15,8 @@ int main() {
 
 	num[1] = true;
 
-	for (int i = 2; i * i <= 1000000; i++) {
+	for (int i = 2; i <= 1000; i++) {
+		if (num[i]) continue;
 		for (int j = 2; i * j < 1000000; j++) {
 			num[i * j] = true;
 		}
