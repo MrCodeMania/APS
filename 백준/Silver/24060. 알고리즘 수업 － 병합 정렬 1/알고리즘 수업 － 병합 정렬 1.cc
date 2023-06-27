@@ -49,6 +49,9 @@ void merge_sort(int start, int end) {
 }
 
 int main() {
+
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
 	
 	cin >> N >> K;
 
