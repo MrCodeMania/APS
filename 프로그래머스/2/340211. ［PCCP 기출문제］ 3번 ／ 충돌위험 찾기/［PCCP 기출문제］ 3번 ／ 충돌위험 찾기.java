@@ -46,7 +46,7 @@ class Solution {
                     isContinue = true;
 
                     boolean arrived = false;
-                    //System.out.println("before : " + robots[routes[i][0] - 1][0] + " " + robots[routes[i][0] - 1][1]);
+        
                     // first row, second col
                     if(!(robots[i][0] == points[routes[i][j + 1] - 1][0])){
                         if(robots[i][0] < points[routes[i][j + 1] - 1][0]){
@@ -67,7 +67,6 @@ class Solution {
                     }
 
                     if(arrived){
-                        //System.out.println(routes[i][0] + " " + routes[i][1]);
                         routes[i][j] = -1;
                         continue;
                     }
