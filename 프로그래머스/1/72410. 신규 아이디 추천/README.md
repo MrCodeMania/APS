@@ -1,6 +1,6 @@
 # [level 1] 신규 아이디 추천 - 72410 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/72410?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/72410) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 12일 18:30:45
+2025년 11월 13일 22:26:33
 
 ### 문제 설명
 
