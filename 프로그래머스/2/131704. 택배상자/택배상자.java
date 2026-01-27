@@ -4,21 +4,21 @@ class Solution {
     public int solution(int[] order) {
         int answer = 0;
         
-        Stack<Integer> s = new Stack<>();
+        Deque<Integer> s = new ArrayDeque<>();
         
         int num = 1;
         for(int box : order){
             if(s.isEmpty()) {
-                s.push(num);
+                s.offerLast(num);
                 num++;
             }
             
-            while(s.peek() < box){
-                s.push(num);
+            while(s.peekLast() < box){
+                s.offerLast(num);
                 num++;
             }
-            if(s.peek() == box){
-                s.pop();
+            if(s.peekLast() == box){
+                s.pollLast();
                 answer++;
             } else{
                 break;
