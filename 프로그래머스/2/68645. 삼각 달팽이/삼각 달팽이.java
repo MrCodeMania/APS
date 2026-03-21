@@ -29,19 +29,6 @@ class Solution {
             n--;
         }
         
-        /*
-        for(int i = 0; i < snailArr.length; i++) {
-            for(int j = 0; j < snailArr.length; j++) {
-                if(snailArr[i][j] == 0) {
-                    System.out.print(" ");
-                } else {
-                    System.out.print(snailArr[i][j] + " ");
-                }
-            }
-            System.out.println();
-        }
-        */
-        
         int index = 0;
         for(int i = 0; i < snailArr.length; i++) {
             for(int j = 0; j < i + 1; j++) {
